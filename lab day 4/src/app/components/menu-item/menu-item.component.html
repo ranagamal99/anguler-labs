@@ -1,0 +1,28 @@
+<div class="card m-1" style="width: 18em">
+  <div class="card-body">
+    <div class="row m-1">
+      <img [src]="item.img" class="card-img-top" alt="..." />
+    </div>
+    <div class="row m-1">
+      <div class="col-8">
+        <p class="card-title">{{ item.name }}</p>
+      </div>
+      <div class="col-4">
+        <p class="text-dark">$ {{ item.price }}</p>
+      </div>
+    </div>
+    <div class="row m-1">
+      <p class="card-subtitle text-secondary text-center">
+        {{ item.description }}
+      </p>
+    </div>
+    <div class="row m-1 text-center">
+      <button class="btn btn-outline-warning col-5 mx-1" (click)="editItem()">
+        Edit
+      </button>
+      <button class="btn btn-outline-danger col-5 mx-1" (click)="deleteItem()">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

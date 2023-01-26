@@ -1,0 +1,85 @@
+<form [formGroup]="itemForm">
+  <div class="mt-5">
+    <input
+      type="text"
+      class="form-control m-2 w-50"
+      placeholder="Image"
+      formControlName="image"
+    />
+    <ng-container *ngIf="getImage.touched">
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getImage.hasError('required')"
+      >
+        Image is required
+      </p></ng-container
+    >
+    <input
+      type="text"
+      class="form-control m-2 w-50"
+      placeholder="Name"
+      formControlName="name"
+    />
+    <ng-container *ngIf="getName.touched">
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getName.hasError('required')"
+      >
+        Name is required
+      </p>
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getName.hasError('pattern')"
+      >
+        Name can't have numbers
+      </p></ng-container
+    >
+    <input
+      type="text"
+      class="form-control m-2 w-50"
+      placeholder="Description"
+      formControlName="description"
+    />
+    <ng-container *ngIf="getDescription.touched">
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getDescription.hasError('required')"
+      >
+        Description is required
+      </p>
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getDescription.hasError('maxLength')"
+      >
+        Description can't be more than 20 characters long
+      </p></ng-container
+    >
+    <input
+      type="text"
+      class="form-control m-2 w-50"
+      placeholder="Price"
+      formControlName="price"
+    />
+    <ng-container *ngIf="getPrice.touched">
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getPrice.hasError('required')"
+      >
+        Price is required
+      </p>
+      <p
+        class="my-1 mx-2 form-text text-danger"
+        *ngIf="getPrice.hasError('min') || getPrice.hasError('max')"
+      >
+        Price must be between 5 and 50
+      </p></ng-container
+    >
+  </div>
+  <button
+    type="submit"
+    class="btn btn-warning mx-2 w-25 my-2 mb-5"
+    (click)="addItem()"
+  >
+    Submit
+  </button>
+</form>
